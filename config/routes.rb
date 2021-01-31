@@ -9,6 +9,7 @@ Rails.application.routes.draw do
         post "sign_up", to: "registrations#create"
         post "sign_in", to: "sessions#create"
         get 'profile' => 'profile#show'
+        get 'profile_user/:id' => 'profile#showOther'
        end
       end
     end
