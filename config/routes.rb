@@ -10,6 +10,7 @@ Rails.application.routes.draw do
         post "sign_in", to: "sessions#create"
         get 'profile' => 'profile#show'
         get 'profile_user/:id' => 'profile#showOther'
+        get 'list_user' => 'profile#listUser'
        end
       end
     end

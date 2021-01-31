@@ -22,5 +22,13 @@ class Api::V1::ProfileController < ApplicationController
               }, status: :precondition_failed
             end
         end
+
+           
+ #list other user
+ def listUser
+    @users = User.select(:name, :email, :id).where.not(id: current_user.id)
+    render json: @users
+  end
+
         
 end
