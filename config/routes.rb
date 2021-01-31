@@ -11,8 +11,9 @@ Rails.application.routes.draw do
         get 'profile' => 'profile#show'
         get 'profile_user/:id' => 'profile#showOther'
         get 'list_user' => 'profile#listUser'
-        resources :conversations, only: [:index, :create]
-       end
+        resources :conversations, only: [:index, :create] do
+          resources :messages, only: [:index, :create]
+        end
       end
     end
   end
