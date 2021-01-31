@@ -11,4 +11,5 @@ how run :
 -run server = rails s
 
 endpoint :
+
 for endpoint and documentation see in screenshot-tseting.docx
