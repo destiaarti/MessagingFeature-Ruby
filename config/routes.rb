@@ -4,17 +4,9 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     namespace :v1 do 
       devise_scope :user do
-        get 'messages/index'
-        get 'conversations/index'
+      
         post "sign_up", to: "registrations#create"
-        post "sign_in", to: "sessions#create"
-        get 'profile' => 'profile#show'
-        get 'list_user' => 'profile#listUser'
-        get 'profile_user/:id' => 'profile#showOther'
-        delete 'message/delete/:id' => 'deleteds#message'
-        delete 'conversation/delete/:id' => 'deleteds#conversation'
-       resources :conversations, only: [:index, :create] do
-       resources :messages, only: [:index, :create]
+      
        end
       end
     end
