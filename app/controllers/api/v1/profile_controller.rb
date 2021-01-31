@@ -9,4 +9,18 @@ class Api::V1::ProfileController < ApplicationController
             render json: response
         end
   
+         #see other people profile
+         def showOther
+            begin
+            @user = User.select(:name, :email, :id).find(params[:id])
+            render json: @user
+        rescue => e 
+            render json: {
+                messages: "User not Found",
+                is_success: false,
+                data: {}
+              }, status: :precondition_failed
+            end
+        end
+        
 end
