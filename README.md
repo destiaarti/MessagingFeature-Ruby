@@ -8,6 +8,12 @@ how run :
 
 -for seeder = rake db:seed
 
+setting devise for session :
+
+-rails generate devise:install
+
+-rails generate devise MODEL, ex : rails generate devise User
+
 -run server = rails s
 
 endpoint :
