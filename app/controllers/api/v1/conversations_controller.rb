@@ -13,5 +13,21 @@ class Api::V1::ConversationsController < ApplicationController
 render :json => @user 
 end
 
+#make new conversation
+  def create
+    #check current_user has already have chat with receiver 
+    if Conversation.between(params[:sender_id], params[:receiver_id]).present?
+      @conversation = Conversation.between(params[:sender_id], params[:receiver_id]).first
+    else
+      @conversation = Conversation.create!(conversation_params)
+    end
 
+   render json: @conversation
+  end
+
+  
+  private
+    def conversation_params
+      params.permit(:sender_id, :receiver_id)
+    end
 end
