@@ -11,6 +11,8 @@ Rails.application.routes.draw do
         get 'profile' => 'profile#show'
         get 'profile_user/:id' => 'profile#showOther'
         get 'list_user' => 'profile#listUser'
+        delete 'message/delete/:id' => 'deleteds#message'
+        delete 'conversation/delete/:id' => 'deleteds#conversation'
         resources :conversations, only: [:index, :create] do
           resources :messages, only: [:index, :create]
         end
